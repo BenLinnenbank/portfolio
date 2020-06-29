@@ -1,23 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Dashboard from './components/Dashboard.js'
+import Animation from './components/Animation.js'
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimationDone(true);
+    }, 6000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const [animationDone, setAnimationDone] = useState(false);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {animationDone
+          ? <Dashboard />
+          : <Animation onClick={setAnimationDone} />
+        }
       </header>
     </div>
   );
