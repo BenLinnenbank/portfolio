@@ -1,27 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router } from "react-router-dom";
 import Dashboard from './components/Dashboard.js'
-import Animation from './components/Animation.js'
-import './App.css';
 
 function App() {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimationDone(true);
-    }, 6000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const [animationDone, setAnimationDone] = useState(false);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        {animationDone
-          ? <Dashboard />
-          : <Animation onClick={setAnimationDone} />
-        }
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Dashboard />
+        </header>
+      </div>
+    </Router>
   );
 }
 
