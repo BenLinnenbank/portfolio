@@ -1,7 +1,6 @@
 import React from 'react';
-import './About.css';
 
-function About() {
+export function About() {
 
   return (
     <div className="fade-in">
@@ -9,5 +8,3 @@ function About() {
     </div>
   );
 }
-
-export default About;
