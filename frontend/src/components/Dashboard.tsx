@@ -14,12 +14,17 @@ export function Dashboard() {
 
   return (
     <>
-      <Row>
+      <Row className="header-bar">
         <Col xs="3">
           <Burger />
         </Col>
         <Col xs="6">
           <Header />
+        </Col>
+      </Row>
+      <Row>
+        <Col xs="3" className="transparant-div" />
+        <Col xs="6">
           <Switch>
             <Route path="/about" exact>
               <About />

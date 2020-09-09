@@ -69,10 +69,15 @@ html {
 
 .header-container {
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 100px;
-  border-bottom: rgb(58, 58, 58) 1px solid;
 } 
+
+.header-title {
+  margin-top: 15px;
+}
+
+.header-description {
+  margin-bottom: 15px;
+}
 
 .border-bottom {
   text-decoration: underline;
@@ -82,13 +87,9 @@ a {
   color: black;
 }
 
-.header-description {
-  margin-bottom: 40px;
-}
-
 .app{
   background-image: url(../assets/backgroundPainting.jpg);
-  background-size: 40% 100%;
+  background-size: 30% 100%;
   background-repeat: no-repeat;
   background-position: left;
   height: 100%;
@@ -96,4 +97,17 @@ a {
 
 .card {
   background-color: transparent !important;
+}
+
+.header-bar {
+  background-image: linear-gradient(to bottom right , rgb(255, 136, 0), rgb(255, 208, 0));
+  background-size: 100%;
+}
+
+.menu-container {
+  position: absolute;
+}
+
+.transparant-div {
+  pointer-events: none;
 }
