@@ -14,6 +14,12 @@ body {
 
 .card {
   border: 0px;
+  background-color: transparent !important;
+}
+
+.drop-down {
+  margin-top: 20px;
+  position: absolute;
 }
 
 code {
@@ -88,20 +94,19 @@ a {
 }
 
 .app{
-  background-image: url(../assets/backgroundPainting.jpg);
-  background-size: 30% 100%;
+  background-image: url(../assets/uokpl.rs-paint-png-4059491.png);
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: center;
   height: 100%;
 }
 
-.card {
-  background-color: transparent !important;
-}
-
 .header-bar {
-  background-image: linear-gradient(to bottom right , rgb(255, 136, 0), rgb(255, 208, 0));
-  background-size: 100%;
+  // background-image: url(../assets/purplepinkstripes.png);
+  // background-size: 30% 100%;
+  // background-repeat: no-repeat;
+  // background-position: left;
+  // height: 100%;
 }
 
 .menu-container {
