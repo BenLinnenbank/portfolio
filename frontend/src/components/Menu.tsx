@@ -6,12 +6,12 @@ export function Menu() {
 
     return (
         <>
-            <div className="border-bottom link-item">
+            <div className="link-item">
                 <NavLink>
                     <Link to="/">Home</Link>
                 </NavLink>
             </div>
-            <div className="border-bottom link-item">
+            <div className="link-item">
                 <NavLink>
                     <Link to="/about/">About</Link>
                 </NavLink>
