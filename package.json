@@ -1,0 +1,51 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev:watch:low-memory",
+    "test": "npm run build-ts-backend && jest --bail",
+    "dev:watch": "npm run clean && mkdirp build/backend && parallel build-ts-backend:watch serve:backend:watch frontend:dev:watch",
+    "dev:watch:low-memory": "npm run clean && mkdirp build/backend && parallel build-ts-backend:watch serve:backend:watch:low-memory",
+    "backend:dev:watch-no-frontend": "npm run clean && mkdirp build/backend && parallel build-ts-backend:watch serve:backend:watch",
+    "backend:dev:watch:low-memory-no-frontend": "npm run clean && mkdirp build/backend && parallel build-ts-backend:watch serve:backend:watch:low-memory",
+    "frontend:dev:watch": "cd src/frontend && SKIP_PREFLIGHT_CHECK=true npm start",
+    "frontend:dev:watch:wait": "wait-on build/backend/server.js && cd src/frontend && SKIP_PREFLIGHT_CHECK=true npm start",
+    "clean": "rimraf build dist",
+    "dev:backend:watch-build-frontend": "npm run clean && mkdirp build/backend && mkdirp build/frontend && SKIP_PREFLIGHT_CHECK=true npm run build-frontend && parallel build-ts-backend:watch serve:backend:watch",
+    "build-frontend": "cd src/frontend && npm install && wait-on node_modules/ && SKIP_PREFLIGHT_CHECK=true npm run build && wait-on build/ && cp -R build/ ../../build/frontend",
+    "build-ts-backend:watch": "npm run build-ts-backend -- -w --preserveWatchOutput",
+    "build-ts-backend": "tsc -incremental -p tsconfig.backend.json",
+    "serve:backend:watch": "nodemon -C -d 1 --ext js --watch build/backend --exec \"wait-on build/backend/server.js && node --inspect -r dotenv/config build/backend/server.js\"",
+    "serve:backend:watch:low-memory": "nodemon -C -d 1 --ext js --watch build/backend --exec \"wait-on build/backend/server.js && node --max-old-space-size=450 --inspect -r dotenv/config build/backend/server.js\"",
+    "create-database": "npm run clean && npm run build-ts-backend && node -r dotenv/config build/scripts/createDatabase.js",
+    "remove-databases": "ts-node --transpile-only src/scripts/removeDatabases.ts",
+    "tslint": "tslint -t verbose --project tsconfig.backend.json",
+    "serve-frontend-from-backend": "npm run clean && mkdirp build/backend && mkdirp build/frontend && npm run build-frontend && parallel build-ts-backend:watch serve:backend:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenLinnenbank/portfolio.git"
+  },
+  "author": "Ben Linnenbank",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BenLinnenbank/portfolio/issues"
+  },
+  "homepage": "https://github.com/BenLinnenbank/portfolio#readme",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "rimraf": "3.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.8",
+    "dotenv": "8.2.0",
+    "mkdirp": "1.0.4",
+    "nodemon": "2.0.4",
+    "npm-parallel": "2.0.1",
+    "typescript": "4.0.3",
+    "wait-on": "5.2.0"
+  }
+}
