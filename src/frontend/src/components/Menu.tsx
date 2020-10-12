@@ -21,6 +21,11 @@ export function Menu() {
                     <Link to="/gallery/">Gallery</Link>
                 </NavLink>
             </div>
+            <div className="link-item">
+                <NavLink>
+                    <Link to="/contact/">Contact</Link>
+                </NavLink>
+            </div>
         </>
     );
 }

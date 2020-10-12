@@ -9,6 +9,7 @@ import { Gallery } from './Gallery';
 import { Header } from './Header';
 import { Burger } from './Burger';
 import { Home } from './Home';
+import { Contact } from './Contact';
 
 export function Dashboard() {
 
@@ -31,6 +32,9 @@ export function Dashboard() {
             </Route>
             <Route path="/gallery" exact>
               <Gallery />
+            </Route>
+            <Route path="/contact" exact>
+              <Contact />
             </Route>
             <Route path="/" exact>
               <Home />

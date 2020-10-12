@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import AliceCarousel from 'react-alice-carousel'
+import 'react-alice-carousel/lib/alice-carousel.css'
+import { ImageCarousel } from './ImageCarousel';
 
 export function Gallery() {
 
@@ -12,6 +15,7 @@ export function Gallery() {
         <div className="fade-in">
             <h1 className="gallery-p">Gallery</h1>
             {data && data.code}
+            <ImageCarousel />
         </div>
     );
 
