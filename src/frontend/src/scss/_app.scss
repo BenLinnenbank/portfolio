@@ -9,6 +9,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.image-container {
+  justify-content: center;
+}
+
+img {
+  width:  500px;
+  height: 400px;
+  object-fit: cover;
+}
+
 #root {
   height: 100%;
 }

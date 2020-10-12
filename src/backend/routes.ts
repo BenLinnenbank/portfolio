@@ -7,18 +7,21 @@ import util from 'util';
 export function routes(router: express.Router) {
 
     const fsReadFile = util.promisify(fs.readFile);
+    const fsReaddir = util.promisify(fs.readdir);
 
     router.get('/api/test', async (req, res) => {
-        let imageArray = [];
-        let totalFiles;
-        fs.readdir(path.join(__dirname, 'assets'), (error, files) => {
-            totalFiles = files.length;
-        });
-        for (let i = 0; i > totalFiles; i++) {
 
+        let imageData = [];
+
+        const assetsFolder = await fsReaddir(path.join(__dirname, 'assets'));
+        console.log(assetsFolder);
+
+        for (let i = 0; i < assetsFolder.length; i++) {
+            const data = await fsReadFile(path.join(__dirname, 'assets', assetsFolder[i]), { encoding: 'base64' });
+            imageData.push(data);
         }
-        const data = await fsReadFile(path.join(__dirname, 'assets', 'foto1.jpeg'), { encoding: 'base64' });
-        res.send({ imageData: [data] });
+
+        res.send({ imageData });
     });
 
     router.get('/*', (req, res) => {
