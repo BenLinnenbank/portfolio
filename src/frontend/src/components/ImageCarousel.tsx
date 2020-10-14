@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Row } from 'reactstrap';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
@@ -19,10 +18,8 @@ export function ImageCarousel() {
         </div>
     );
 
-
-
     async function loadData() {
-        const result = await fetch('/api/test', {
+        const result = await fetch('/api/images', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
