@@ -35,7 +35,7 @@ export function Contact() {
 
         alert('Your message has been sent!');
 
-        const response = await fetch('/api/message-me', {
+        const response = await fetch('/api/contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
