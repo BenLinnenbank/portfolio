@@ -14,7 +14,7 @@ export function ImageCarousel() {
 
     return (
         <div className="image-container">
-            <AliceCarousel fadeOutAnimation mouseTrackingEnabled items={imageArray} />
+            <AliceCarousel fadeOutAnimation mouseTrackingEnabled autoHeight={true} items={imageArray} />
         </div>
     );
 
@@ -26,7 +26,6 @@ export function ImageCarousel() {
                 'Content-Type': 'application/json',
             },
         });
-        console.log('this is the result: ', result)
         if (!result) {
             throw new Error('No result');
         }
@@ -34,14 +33,11 @@ export function ImageCarousel() {
         if (!resultJson && !resultJson.imageData) {
             throw new Error('No JSON in result');
         }
-        console.log('this is the resultJson: ', resultJson);
 
         const imageData: string[] = resultJson.imageData;
 
         setImageArray(imageData.map(image => {
             return <img src={`data:image/png;base64,${image}`} onDragStart={handleDragStart} className="yours-custom-class" />
         }));
-
-        console.log('this is the image array', imageArray)
     }
 }
