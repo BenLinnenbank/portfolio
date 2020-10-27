@@ -9,7 +9,7 @@ export function routes(router: express.Router) {
     const fsReadFile = util.promisify(fs.readFile);
     const fsReaddir = util.promisify(fs.readdir);
 
-    router.get('/api/test', async (req, res) => {
+    router.get('/api/images', async (req, res) => {
 
         let imageData = [];
 
@@ -20,8 +20,11 @@ export function routes(router: express.Router) {
             const data = await fsReadFile(path.join(__dirname, 'assets', assetsFolder[i]), { encoding: 'base64' });
             imageData.push(data);
         }
-
         res.send({ imageData });
+    });
+
+    router.post('/api/contact', async (req, res) => {
+        await console.log('this is the Request: ', req.body);
     });
 
     router.get('/*', (req, res) => {
