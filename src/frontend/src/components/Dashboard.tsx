@@ -15,7 +15,7 @@ export function Dashboard() {
 
   return (
     <>
-      <Row className="header-bar">
+      <Row className="header-row">
         <Col xs="3">
           <Burger />
         </Col>
@@ -23,7 +23,7 @@ export function Dashboard() {
           <Header />
         </Col>
       </Row>
-      <Row>
+      <Row className="body-row">
         <Col xs="3" className="transparant-div" />
         <Col xs="6">
           <Switch>
