@@ -23,26 +23,20 @@ export function Dashboard() {
           <Header />
         </Col>
       </Row>
-      <Row className="body-row">
-        <Col xs="3" className="transparant-div" />
-        <Col xs="6">
-          <Switch>
-            <Route path="/about" exact>
-              <About />
-            </Route>
-            <Route path="/gallery" exact>
-              <Gallery />
-            </Route>
-            <Route path="/contact" exact>
-              <Contact />
-            </Route>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-          </Switch>
-        </Col>
-        <Col xs="3"></Col>
-      </Row>
+      <Switch>
+        <Route path="/about" exact>
+          <About />
+        </Route>
+        <Route path="/gallery" exact>
+          <Gallery />
+        </Route>
+        <Route path="/contact" exact>
+          <Contact />
+        </Route>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+      </Switch>
     </>
   );
 }
