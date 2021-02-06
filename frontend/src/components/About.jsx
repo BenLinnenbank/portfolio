@@ -5,7 +5,7 @@ export function About() {
 
   return (
 
-    <Row className="header-row">
+    <Row>
       <Col xs="3" className="transparant-div" />
       <Col xs="6">
         <div className="fade-in about-container">

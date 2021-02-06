@@ -9,7 +9,7 @@ export function Contact() {
     const [lastName, setLastName] = useState("");
 
     return (
-        <Row className="header-row">
+        <Row>
             <Col xs="3" className="transparant-div" />
             <Col xs="6">
                 <div className="fade-in">
@@ -38,7 +38,7 @@ export function Contact() {
         </Row>
     );
 
-    async function handleSubmit(e: any) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
         alert('Your message has been sent!');

@@ -17,7 +17,7 @@ export function Burger() {
                 <Collapse isOpen={collapse}>
                     <Card>
                         <CardBody>
-                            <Menu />
+                            <Menu toggle={burgerToggle} />
                         </CardBody>
                     </Card>
                 </Collapse>

@@ -1,27 +1,27 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavItem, NavLink } from 'reactstrap';
+import { NavLink } from 'reactstrap';
 
-export function Menu() {
+export function Menu({ toggle }) {
 
     return (
         <>
-            <div className="link-item">
+            <div onClick={() => toggle()} className="link-item">
                 <NavLink>
                     <Link to="/">Home</Link>
                 </NavLink>
             </div>
-            <div className="link-item">
+            <div onClick={() => toggle()} className="link-item">
                 <NavLink>
                     <Link to="/about/">About</Link>
                 </NavLink>
             </div>
-            <div className="link-item">
+            <div onClick={() => toggle()} className="link-item">
                 <NavLink>
                     <Link to="/gallery/">Gallery</Link>
                 </NavLink>
             </div>
-            <div className="link-item">
+            <div onClick={() => toggle()} className="link-item">
                 <NavLink>
                     <Link to="/contact/">Contact</Link>
                 </NavLink>

@@ -6,7 +6,7 @@ export function Home() {
 
     return (
 
-        <Row className="header-row">
+        <Row>
             <Col xs="3" className="transparant-div" />
             <Col xs="6">
 
